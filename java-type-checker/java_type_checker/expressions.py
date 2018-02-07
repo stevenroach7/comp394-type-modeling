@@ -118,6 +118,12 @@ class ConstructorCall(Expression):
         check_arguments(expected_types, actual_types, call_name)
 
 
+class JavaTypeError(Exception):
+    """ Indicates a compile-time type error in an expression.
+    """
+    pass
+
+
 def check_arguments(expected_types, actual_types, call_name):
     """"
     Helper to check arguments. Raises JavaTypeError.
@@ -136,13 +142,6 @@ def check_arguments(expected_types, actual_types, call_name):
                     call_name,
                     names(expected_types),
                     names(actual_types)))
-
-
-class JavaTypeError(Exception):
-    """ Indicates a compile-time type error in an expression.
-    """
-    pass
-
 
 def names(named_things):
     """ Helper for formatting pretty error messages

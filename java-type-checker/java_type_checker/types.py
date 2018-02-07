@@ -76,9 +76,6 @@ class NullType(Type):
     """
     def __init__(self):
         super().__init__("null")
-        self.methods = {}
-        self.direct_supertypes = []
-        self.is_instantiable = False
 
     def method_named(self, name):
         """
